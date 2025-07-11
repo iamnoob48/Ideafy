@@ -1,0 +1,149 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Startup Idea Review Platform Design System - Blue & Black Theme */
+
+@layer base {
+  :root {
+    --background: 210 40% 6%; /* Dark blue-black background */
+    --foreground: 210 40% 98%; /* Light blue-white text */
+
+    --card: 220 39% 11%; /* Dark card background */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 39% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 56%; /* Neon blue primary */
+    --primary-foreground: 210 40% 6%;
+
+    --secondary: 220 39% 16%; /* Darker secondary */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 39% 14%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 199 89% 48%; /* Bright blue accent */
+    --accent-foreground: 210 40% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 39% 20%;
+    --input: 220 39% 16%;
+    --ring: 210 100% 56%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 39% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary-foreground: 210 40% 6%;
+    --sidebar-accent: 220 39% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 39% 20%;
+    --sidebar-ring: 210 100% 56%;
+  }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 210 40% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 6%;
+
+    --primary: 210 100% 56%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 40% 6%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom animations for smooth transitions */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary)), 0 0 15px hsl(var(--primary));
+    }
+    to {
+      box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary));
+    }
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(34, 40, 49, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+  }
+}
